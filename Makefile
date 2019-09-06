@@ -1,4 +1,6 @@
+TAG=$(shell cat .image-tag)
+
 build:
-	docker build -t 8398a7/descheduler:0.9.0 .
+	docker build -t docker.pkg.github.com/8398a7/descheduler:$(TAG) .
 push:
-	docker push 8398a7/descheduler:0.9.0
+	docker push docker.pkg.github.com/8398a7/descheduler:$(TAG)

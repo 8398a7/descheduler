@@ -7,7 +7,7 @@ ENV \
 WORKDIR $HOME
 RUN mkdir -p $GOPATH/src/github.com/kubernetes-incubator && apk add --no-cache git make
 RUN git clone https://github.com/kubernetes-incubator/descheduler.git $HOME
-RUN git checkout 0.9.0 && make build
+RUN git checkout $(cat .image-tag) && make build
 
 FROM alpine:3.10 as runner
 
